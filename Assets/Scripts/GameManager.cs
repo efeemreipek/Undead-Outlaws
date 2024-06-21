@@ -95,6 +95,15 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        if (isGamePaused)
+        {
+            AudioManager.Instance.PauseSound();
+        }
+        else
+        {
+            AudioManager.Instance.UnpauseSound();
+        }
     }
 
     private void Pause()
@@ -232,4 +241,5 @@ public class GameManager : MonoBehaviour
 
 
     public bool GetIsGameStarted() => isGameStarted;
+    public bool GetIsGamePaused() => isGamePaused;
 }

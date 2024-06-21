@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 7052967276983556578, guid: 3e5aecee74f0495498ca9e466d490eb6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,8 +103,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3e5aecee74f0495498ca9e466d490eb6, type: 2}
+  m_sharedMaterial: {fileID: 7052967276983556578, guid: 3e5aecee74f0495498ca9e466d490eb6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -134,11 +135,11 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
-  m_characterSpacing: -10
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -185,8 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a259bee0afaeff448bba8fb825aa92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regularFontSize: 15
-  criticalHitFontSize: 20
+  regularFontSize: 24
+  criticalHitFontSize: 30
   regularColor: {r: 1, g: 0.8588236, b: 0, a: 0}
   criticalHitColor: {r: 1, g: 0.039215688, b: 0, a: 0}
   moveSpeed: 2

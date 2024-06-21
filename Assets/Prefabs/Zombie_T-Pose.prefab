@@ -795,10 +795,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  minDistanceToChase: 9
+  minDistanceToChase: 10
   attackRange: 3
   attackDamage: 20
-  walkSpeed: 1
+  walkSpeed: 2
   chaseSpeed: 5
 --- !u!195 &9188057193108580493
 NavMeshAgent:

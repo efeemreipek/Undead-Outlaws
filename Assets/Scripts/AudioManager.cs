@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip diamondPickupSound;
     [SerializeField] private AudioClip clockTickingSound;
     [SerializeField] private AudioClip[] footstepSounds;
+    [SerializeField] private AudioClip clockTimerEndSound;
 
 
     private AudioSource audioSource;
@@ -54,5 +55,15 @@ public class AudioManager : MonoBehaviour
         AudioClip clipToPlay = footstepSounds[Random.Range(0, footstepSounds.Length)];
 
         audioSource.PlayOneShot(clipToPlay);
+    }
+    public void PlayClockTimerEndSound() => audioSource.PlayOneShot(clockTimerEndSound);
+
+    public void PauseSound()
+    {
+        audioSource.Pause();
+    }
+    public void UnpauseSound()
+    {
+        audioSource.UnPause();
     }
 }

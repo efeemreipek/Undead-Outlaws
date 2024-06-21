@@ -65,7 +65,7 @@ public class WaveManager : MonoBehaviour
     {
         float timer = countdown;
         UIManager.Instance.GetWaveCountdownText().gameObject.SetActive(true);
-
+        
         AudioManager.Instance.PlayClockTickingSound();
 
         while (timer > 0)
@@ -76,6 +76,8 @@ public class WaveManager : MonoBehaviour
 
             yield return null;
         }
+
+        AudioManager.Instance.PlayClockTimerEndSound();
 
         
         UIManager.Instance.GetWaveCountdownText().gameObject.SetActive(false);
