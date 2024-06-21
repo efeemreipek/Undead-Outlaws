@@ -33,6 +33,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject restartMenuPanel;
     [SerializeField] private TextMeshProUGUI waveNumberText;
     [SerializeField] private Image enemiesLeftImage;
+    [SerializeField] private Slider audioSlider;
+    [SerializeField] private TMP_Dropdown graphicsDropdown;
+    [SerializeField] private Toggle fullscreenToggle;
 
 
     public TextMeshProUGUI GetWeaponNameText() => weaponNameText;
@@ -50,4 +53,7 @@ public class UIManager : MonoBehaviour
     public GameObject GetRestartMenuPanel() => restartMenuPanel;
     public TextMeshProUGUI GetWaveNumberText() => waveNumberText;
     public Image GetEnemiesLeftImage() => enemiesLeftImage;
+    public Slider GetAudioSlider() => audioSlider;
+    public TMP_Dropdown GetGraphicsDropdown() => graphicsDropdown;
+    public Toggle GetFullscreenToggle() => fullscreenToggle;
 }

@@ -68,6 +68,12 @@ public class GameManager : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(resolutionStringList);
+
+        UIManager.Instance.GetAudioSlider().value = PlayerPrefs.GetInt(PREFS_AUDIO);
+        UIManager.Instance.GetGraphicsDropdown().value = PlayerPrefs.GetInt(PREFS_GRAPHIC);
+        UIManager.Instance.GetResolutionDropdown().value = PlayerPrefs.GetInt(PREFS_RESOLUTION);
+        UIManager.Instance.GetFullscreenToggle().isOn = PlayerPrefs.GetInt(PREFS_FULLSCREEN) == 1 ? true : false;
+
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
@@ -177,6 +183,11 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.GetSettingsMenuPanel().SetActive(false);
             EventSystem.current.SetSelectedGameObject(startMenuFirstSelected);
         }
+
+        PlayerPrefs.SetInt(PREFS_AUDIO, (int)UIManager.Instance.GetAudioSlider().value);
+        PlayerPrefs.SetInt(PREFS_GRAPHIC, UIManager.Instance.GetGraphicsDropdown().value);
+        PlayerPrefs.SetInt(PREFS_RESOLUTION, UIManager.Instance.GetResolutionDropdown().value);
+        PlayerPrefs.SetInt(PREFS_FULLSCREEN, UIManager.Instance.GetFullscreenToggle().isOn ? 1 : 0);
     }
 
     public void PlayAgainButton()
