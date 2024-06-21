@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width.ToString() + "x" + resolutions[i].height.ToString() + "@" + Mathf.Round((float)resolutions[i].refreshRateRatio.value);
+            string option = resolutions[i].width.ToString() + "x" + resolutions[i].height.ToString() + "@" + (int)resolutions[i].refreshRateRatio.value;
             resolutionStringList.Add(option);
 
             if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
