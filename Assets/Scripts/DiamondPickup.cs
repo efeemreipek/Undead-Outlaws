@@ -30,4 +30,6 @@ public class DiamondPickup : MonoBehaviour, IPickable
 
     public static void SetDiamondCountToZero() => diamondCount = 0;
     public static void UpdateDiamondUI() => UIManager.Instance.GetDiamondCountText().text = diamondCount.ToString();
+    public static void UpdateDiamondScoreUIEndGame() => UIManager.Instance.GetScoreText().text = "SCORE: " + diamondCount.ToString();
+    public static void UpdateHighestDiamondScoreUIEndGame(int highScore) => UIManager.Instance.GetHighestScoreText().text = "HIGHEST SCORE: " + highScore;
 }

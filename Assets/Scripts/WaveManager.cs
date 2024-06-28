@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class WaveManager : MonoBehaviour
 {
+    public static WaveManager Instance { get; private set; }
+
     [SerializeField] private float range = 10f;
     [SerializeField] private float countdown = 5f;
     [SerializeField] private PlayerHealth playerHealth;
@@ -23,6 +25,16 @@ public class WaveManager : MonoBehaviour
         Waiting
     }
     private WaveState waveState;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -164,13 +176,11 @@ public class WaveManager : MonoBehaviour
 
     }
 
-    private void UpdateWaveNumberUI()
-    {
-        UIManager.Instance.GetWaveNumberText().text = "WAVE " + waveNumber;
-    }
+    private void UpdateWaveNumberUI() => UIManager.Instance.GetWaveNumberText().text = "WAVE " + waveNumber;
 
-    private void UpdateEnemiesLeftBar()
-    {
-        UIManager.Instance.GetEnemiesLeftImage().fillAmount = (float)currentEnemyCount / waveEnemyCount;
-    }
+    private void UpdateEnemiesLeftBar() => UIManager.Instance.GetEnemiesLeftImage().fillAmount = (float)currentEnemyCount / waveEnemyCount;
+
+    public void UpdateWaveNumberUIEndGame() => UIManager.Instance.GetWaveText().text = "WAVE: " + waveNumber;
+    public void UpdateHighestWaveNumberUIEndGame(int highWave) => UIManager.Instance.GetHighestWaveText().text = "HIGHEST WAVE: " + highWave;
+    public int GetWaveNumber() => waveNumber;
 }

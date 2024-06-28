@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private const string PREFS_RESOLUTION = "PrefsResolution";
     private const string PREFS_GRAPHIC = "PrefsGraphic";
     private const string PREFS_FULLSCREEN = "PrefsFullscreen";
+    private const string PREFS_HIGHSCORE = "PrefsHighscore";
+    private const string PREFS_HIGHWAVE = "PrefsHighWave";
 
     public static GameManager Instance { get; private set; }
 
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
     private Resolution[] resolutions;
     private bool isGameStarted = false;
     private bool isPlayerDead = false;
+    private int highestScore = 0;
+    private int highestWave = 0;
 
     public static Action OnGameRestarted;
 
@@ -232,6 +236,24 @@ public class GameManager : MonoBehaviour
         SwitchFromPlayerToUI();
 
         UIManager.Instance.GetRestartMenuPanel().SetActive(true);
+
+        DiamondPickup.UpdateDiamondScoreUIEndGame();
+        WaveManager.Instance.UpdateWaveNumberUIEndGame();
+
+        if(DiamondPickup.diamondCount >= highestScore)
+        {
+            highestScore = DiamondPickup.diamondCount;
+            PlayerPrefs.SetInt(PREFS_HIGHSCORE, highestScore);
+        }
+        if(WaveManager.Instance.GetWaveNumber() >= highestWave)
+        {
+            highestWave = WaveManager.Instance.GetWaveNumber();
+            PlayerPrefs.SetInt(PREFS_HIGHWAVE, highestWave);
+        }
+
+
+        DiamondPickup.UpdateHighestDiamondScoreUIEndGame(PlayerPrefs.GetInt(PREFS_HIGHSCORE));
+        WaveManager.Instance.UpdateHighestWaveNumberUIEndGame(PlayerPrefs.GetInt(PREFS_HIGHWAVE));
 
         EventSystem.current.SetSelectedGameObject(restartMenuFirstSelected);
     }

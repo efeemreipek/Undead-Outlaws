@@ -36,6 +36,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider audioSlider;
     [SerializeField] private TMP_Dropdown graphicsDropdown;
     [SerializeField] private Toggle fullscreenToggle;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI highestScoreText;
+    [SerializeField] private TextMeshProUGUI highestWaveText;
 
 
     public TextMeshProUGUI GetWeaponNameText() => weaponNameText;
@@ -56,4 +60,8 @@ public class UIManager : MonoBehaviour
     public Slider GetAudioSlider() => audioSlider;
     public TMP_Dropdown GetGraphicsDropdown() => graphicsDropdown;
     public Toggle GetFullscreenToggle() => fullscreenToggle;
+    public TextMeshProUGUI GetScoreText() => scoreText;
+    public TextMeshProUGUI GetWaveText() => waveText;
+    public TextMeshProUGUI GetHighestScoreText() => highestScoreText;
+    public TextMeshProUGUI GetHighestWaveText() => highestWaveText;
 }
